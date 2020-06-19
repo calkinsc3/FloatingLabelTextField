@@ -9,8 +9,14 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    let lables = ["First Name", "Last Name", "Email or UserID", "Password"]
+    @State private var values = Array(repeating: "", count: 4)
+    
     var body: some View {
-        Text("Hello, World!")
+        List(0 ..< 4) { index in
+            FloatingTextField(title: self.lables[index], text: self.$values[index])
+        }.listStyle(GroupedListStyle())
     }
 }
 
